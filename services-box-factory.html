@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Services (http) (4 boxes) using factory service - AngularJS - Chintan</title>
+	<style>
+		html {
+			margin: auto;
+			text-align: center;
+			background-color: lightblue;
+		}
+
+		h1 {
+			color: navy;
+			text-decoration: underline;
+		}
+
+		.legend {
+			list-style: none;
+		}
+
+			.legend li {
+				float: left;
+				margin-right: 10px;
+			}
+
+			.legend span {
+				border: 1px solid #ccc;
+				float: left;
+				width: 12px;
+				height: 12px;
+				margin: 2px;
+			}
+			/* your colors */
+			.legend .coral {
+				background-color: coral;
+			}
+
+			.legend .burlywood {
+				background-color: burlywood;
+			}
+
+		span {
+			color: navy;
+			text-decoration: underline;
+		}
+
+		p {
+			font-weight: bolder;
+		}
+
+		input {
+			padding: 10px;
+			width: 600px;
+			height: 20px;
+		}
+
+		button {
+			background-color: orange;
+			font-weight: bolder;
+		}
+
+		.mainBox {
+			margin-left: 6px;
+			margin-bottom: 6px;
+			padding: 10px;
+			width: 23%;
+			height: 200px;
+			float: left;
+			text-align: justify;
+			border-radius: 10px;
+			border: 1px solid black;
+			background-color: #8B008B;
+		}
+
+		.box{
+			margin: auto;
+			padding: 10px;
+			width: 93%;
+			height: 177px;
+			text-align: justify;
+			border-radius: 10px;
+			border: 1px solid cyan;
+		}
+
+		.Female {
+			background-color: burlywood;
+		}
+
+		.Male {
+			background-color: coral;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+</head>
+
+<body data-ng-app="myApp" data-ng-controller="mainCtrl">
+	<div>
+		<h1>Search Assignment using services ($http) boxes !!</h1><br />
+
+		<input type="text" data-ng-model="prompt" placeholder="Please enter keywords to search !!" />
+		<br />
+
+
+		<ul class="legend">
+			<li><span class="coral"></span> Male</li>
+			<li><span class="burlywood"></span> Female</li>
+		</ul>
+	</div>
+	<br />
+	<br />
+
+	<!--  Display output code -->
+	<div class="mainBox" data-ng-repeat="result in myData |	filter : prompt ">
+
+		<div class="box" data-ng-class="{Male: result.gender == 'M' , Female: result.gender == 'F'}">
+
+			<p><span>ID:</span> {{result.id}}</p>
+			<p><span>Gender:</span> {{result.gender}}</p>
+			<p><span>Name:</span> {{result.name}}</p>
+			<p><span>Email:</span> {{result.email}}</p>
+			<p><span>City:</span> {{result.city}}</p>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="services-box-factory.js"></script>
+
+</body>
+</html>

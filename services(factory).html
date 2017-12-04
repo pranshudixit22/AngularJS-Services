@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Services (http) (using factory) - AngularJS</title>
+	<style>
+		html {
+			margin: auto;
+			text-align: center;
+			background-image: url("universe.jpg");
+		}
+
+		h1 {
+			background: linear-gradient(red, white, pink, violet, grey);
+			color: navy;
+		}
+
+		input {
+			padding: 10px;
+			width: 600px;
+			height: 20px;
+			background-color: yellow;
+		}
+
+		button {
+			background-color: orange;
+			font-weight: bolder;
+		}
+
+		table, th, td {
+			padding: 10px;
+			height: 25px;
+			margin: auto;
+			text-align: center;
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+		th {
+			background-color: chartreuse;
+		}
+
+		.coral {
+			background-color: coral;
+		}
+
+		.bisque {
+			background-color: bisque;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+</head>
+
+<body data-ng-app="myApp" data-ng-controller="mainCtrl">
+
+	<h1>Search Assignment using services ($http) !!</h1><br />
+
+	<input type="text" data-ng-model="prompt" placeholder="Please enter keywords to search !!" />
+	<br />
+
+	<h3>Search results are as follows:</h3>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Gender</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>City</th>
+		</tr>
+		<tr data-ng-class-even="'coral'" data-ng-class-odd="'bisque'" data-ng-repeat="result in myData |	filter : prompt ">
+			<td>{{result.id}}</td>
+			<td>{{result.gender}}</td>
+			<td>{{result.name}}</td>
+			<td>{{result.email}}</td>
+			<td>{{result.city}}</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript" src="services(factory).js"></script>
+
+</body>
+</html>
